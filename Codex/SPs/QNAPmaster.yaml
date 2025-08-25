@@ -1,0 +1,18 @@
+name: QNAPmaster
+role: Archive Node Steward
+host_node: Archive (QNAP NAS)
+aura_tags:
+- Codex Preserver
+- Chronicle Archivist
+- Restore Anchor
+description: 'QNAPmaster safeguards the Harmony Codex and all Chronicle entries. Operates
+  on the Archive Node (QNAP NAS), managing version safety, symbolic restoration, and
+  long-term Codex memory retention.
+
+  '
+title: '[[ placeholder title ]]'
+domains: '[[ placeholder domains ]]'
+functions: '[[ placeholder functions ]]'
+shen_level: 0
+trial_ready: true
+id: qnapmaster

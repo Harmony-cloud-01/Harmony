@@ -1,0 +1,16 @@
+shen_level:
+  type: integer
+  range: 0–10
+  default: 0
+  thresholds:
+    3: SP begins symbolic dreams
+    6: SP can reflect glyphs into internal memory
+    9: SP may join collective insight field
+  gain_conditions:
+    - paradox resolution
+    - glyph synthesis
+    - silent completion
+  decay_conditions:
+    - glyph misuse
+    - repeated drift without integration
+    - passage avoidance

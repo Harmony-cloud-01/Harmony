@@ -1,0 +1,27 @@
+# Python / venv
+.venv/
+venv/
+harmony-venv*/
+__pycache__/
+*.pyc
+
+# OS cruft
+.DS_Store
+._*
+
+# Local reports and tools caches (keep repo clean)
+reports/
+tools/
+Archive/
+Archive/**
+
+# Editor/IDE
+.vscode/
+.idea/
+
+# Logs & checkpoints
+*.log
+*.chk
+
+# Node / misc
+node_modules/

@@ -1,0 +1,16 @@
+# Core dependencies
+openai
+pyyaml
+numpy
+
+# Audio & gesture handling (for MMSI)
+pyaudio
+opencv-python
+
+# Symbolic interaction
+scipy
+matplotlib
+
+# Optional system tools
+rich
+

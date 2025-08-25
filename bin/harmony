@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+echo "🧪 Invoked with: $(which python)"
+/Users/pauldmarkov/harmony-venv/bin/python ~/Projects/Harmony/SDK/harmony_cli/main.py "$@"
