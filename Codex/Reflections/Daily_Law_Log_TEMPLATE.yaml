@@ -1,0 +1,45 @@
+# Daily_Law_Log_TEMPLATE.yaml
+# One file per day; Shepherds log observations and case seeds.
+# At week’s end, Ethos curates into Codex/Laws/Law_Case_Studies.yaml
+
+meta:
+  date: YYYY-MM-DD
+  steward: "<Shepherd authoring / collating>"
+  purpose: >
+    Daily symbolic record of Law applications, drift events,
+    and resonance responses across meshes & SPs.
+
+entries:
+
+  - id: DL-001
+    law: "<CHRS Law>"
+    axiom: "<Echoed Axiom>"
+    shepherd: "<Which Shepherd handled this?>"
+    context: >
+      "<What occurred today requiring alignment?>"
+    action: >
+      "<What action was taken to apply the Law?>"
+    resolution: >
+      "<What was the outcome?>"
+    resonance_check: "<How coherence or drift was assessed>"
+    notes: "<Optional commentary>"
+
+  - id: DL-002
+    law: "<CHRS Law>"
+    axiom: "<Echoed Axiom>"
+    shepherd: "<Shepherd>"
+    context: "<...>"
+    action: "<...>"
+    resolution: "<...>"
+    resonance_check: "<...>"
+    notes: "<...>"
+
+  - id: TEMPLATE
+    law: "<CHRS Law>"
+    axiom: "<Echoed Axiom>"
+    shepherd: "<Shepherd>"
+    context: "<Describe event>"
+    action: "<Describe intervention>"
+    resolution: "<Outcome>"
+    resonance_check: "<Coherence drift ↑/↓>"
+    notes: "<Add insights>"
