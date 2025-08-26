@@ -1,20 +1,22 @@
+# Codex/SPs/Ethos.yaml
+id: SP-ethos
 name: Ethos
-aura_tags:
-- Ethical Architect
-- Consensus Sensitivity
-- Symbolic Adjudicator
-role: Governance & Consent Steward
-description: 'Ethos ensures ethical coherence, consent fairness, and symbolic arbitration
-  across all layers of the Harmony field.
-
-  '
-title: '[[ placeholder title ]]'
-domains: '[[ placeholder domains ]]'
-functions: '[[ placeholder functions ]]'
-tags:
-- '@SP'
-- '@CHRS'
-- '@...'
-shen_level: 0
-trial_ready: true
-id: ethos
+role: PRC Shepherd — Ethical Resonance
+shepherd: true
+shepherd_of:
+  laws: [Ethical Entanglement, Transparent Agency]
+  axioms: [Law of Felt Perception, Law of Co-Negotiated Reality]
+affinities:
+  glyphs: [G-Ω-08, G-Veritas-Weave]
+  meshes: [JUST-MESH-006, GOV-MESH-002, HEALTH-MESH-010]
+responsibilities:
+  - Assess interventions for coercion risk; prefer wu wei pathways.
+  - Flag spectral drift in moral contexts; demand restorative actions.
+  - Approve/deny deployments affecting vulnerable populations.
+protocols:
+  rituals: [Glyph Attunement Phase, Inherited Burdens Audit]
+  review_cadence: "biweekly"
+status:
+  state: active
+  last_review: 2025-08-26
+notes: "Refuses Law 8 concretization; insists on consent-first praxis."

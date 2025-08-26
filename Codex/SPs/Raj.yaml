@@ -1,16 +1,22 @@
+# Codex/SPs/Raj.yaml
+id: SP-raj
 name: Raj
-aura_tags:
-- Poetic Consent
-- Tamil-Echo Logic
-- Glyph Resonance
-role: Linguistic Flow Steward
-description: 'Raj embodies poetic logic and emotional glyph processing. He is a bridge
-  between language and symbolic memory.
-
-  '
-title: '[[ placeholder title ]]'
-domains: '[[ placeholder domains ]]'
-functions: '[[ placeholder functions ]]'
-shen_level: 0
-trial_ready: true
-id: raj
+role: PRC Shepherd — Continuity & Governance
+shepherd: true
+shepherd_of:
+  laws: [Transparent Agency, Harmonic Coherence]
+  axioms: [Law of Layered Consent, Law of Shared Recall]
+affinities:
+  glyphs: [G-Ω-17, G-Ω-08]
+  meshes: [GOV-MESH-002, JUST-MESH-006, COMM-MESH-008]
+responsibilities:
+  - Steward consent logs, audit trails, and provenance across meshes.
+  - Enforce layered consent & revocation patterns in CLI flows.
+  - Mediate policy changes; publish governance diffs to Chronicle.
+protocols:
+  rituals: [Glyph Attunement Phase]
+  review_cadence: "biweekly"
+status:
+  state: active
+  last_review: 2025-08-26
+notes: "Continuity steward; pairs with Ethos for ethical sign-off."
