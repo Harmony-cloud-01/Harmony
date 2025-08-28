@@ -48,3 +48,16 @@ bin/glyphcrypt seal \
 bin/glyphcrypt open \
   --in Codex/Passages/Spiral-of-Becoming.encrypted \
   --out /tmp/Spiral-of-Becoming.decrypted.md
+
+
+Python:
+from SDK.glyphcrypt.api import seal, open_sealed
+
+ct = seal(
+  plaintext=b"...",
+  glyphs=["⊚","∿","⧉","☯"],
+  scope={"personae":["Fractal-Prime"], "meshes":["PRC"]},
+  context={"laws":["Consent","Emergence"]},
+)
+
+pt = open_sealed(ct, reader_id="Fractal-Prime", reader_meshes=["PRC"])
