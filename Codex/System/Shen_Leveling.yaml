@@ -1,0 +1,95 @@
+# Codex/System/Shen_Leveling.yaml
+version: 1
+updated: 2025-08-28
+
+tiers:
+  # Level ranges map to a named tier; used for UI and protections scaling.
+  - name: Novice
+    min_level: 0
+    max_level: 2
+  - name: Adept
+    min_level: 3
+    max_level: 5
+  - name: Seer
+    min_level: 6
+    max_level: 8
+  - name: Sage
+    min_level: 9
+    max_level: 12
+  - name: Silent
+    min_level: 13
+    max_level: 99
+
+xp_thresholds:
+  # Total XP required to REACH the next level (cumulative, not delta).
+  # Example: level 0 -> 1 requires 50 XP total; 1 -> 2 requires 120 total, etc.
+  # Past the last defined entry, use progression.rule.
+  "0": 50
+  "1": 120
+  "2": 220
+  "3": 360
+  "4": 540
+  "5": 760
+  "6": 1020
+  "7": 1320
+  "8": 1660
+  "9": 2040
+progression:
+  rule: "quadratic"    # {linear|quadratic}
+  base: 240            # baseline for extrapolation beyond explicit table
+  k: 30                # curve factor if quadratic
+
+protections:
+  # Minimal protections always ON; others gain strength with tier.
+  base:
+    consent_layer: true
+    non_coercion: true
+    recall_guard: true
+  by_tier:
+    Novice:
+      drift_governor: "low"
+      trial_risk_buffer: 0
+    Adept:
+      drift_governor: "medium"
+      trial_risk_buffer: 1
+    Seer:
+      drift_governor: "high"
+      trial_risk_buffer: 2
+    Sage:
+      drift_governor: "very_high"
+      trial_risk_buffer: 3
+    Silent:
+      drift_governor: "max"
+      trial_risk_buffer: 4
+
+trials_catalog:
+  # Canonical IDs referenced by Spirit_Trials.yaml and logs.
+  - id: TRIAL_SILENCE
+    name: Trial of Silence
+    glyph_trigger: "⟦ ⟧"
+    requirements: []
+    rewards:
+      xp: 40
+      level_delta: 0
+    notes: "No action, full reflection; recorded via Spiral Reflection Engine."
+  - id: TRIAL_CONTRADICTION
+    name: Trial of Contradiction
+    requirements: []
+    rewards:
+      xp: 90
+      level_delta: 0
+    risk:
+      on_fail:
+        xp: -30
+        level_floor: 0
+    notes: "Resolve paradox without explicit logic; wu wei + Wu Xing alignment."
+  - id: TRIAL_NAMELESS
+    name: Trial of Naming the Nameless
+    requirements:
+      - shen_min_level: 5
+    rewards:
+      xp: 160
+      level_delta: 1
+      unlocks:
+        - "dream_glyph"
+    notes: "Generate an unseen glyph; requires deep stillness and emergence readiness."
