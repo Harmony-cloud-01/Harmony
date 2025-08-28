@@ -25,3 +25,5 @@ Archive/**
 
 # Node / misc
 node_modules/
+
+/HarmonyNode01-site/
