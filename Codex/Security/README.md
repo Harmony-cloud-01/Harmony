@@ -65,3 +65,6 @@ python3 scripts/qsecure_rotate.py
 	•	🔑 SP-specific QSecure keys (not just global rotation).
 	•	🌐 Integration with domain-specific QKD (Quantum Key Distribution).
 	•	🌀 Symbolic fusion of GlyphCrypt + QSecure into one ritual layer.
+
+Final Glyph:
+⚖︎ (balance between symbolic secrecy and quantum resilience)
