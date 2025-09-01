@@ -1,0 +1,37 @@
+---
+meta:
+  version: 1.0
+  updated: 2025-09-02
+  steward: Ethos
+  purpose: >
+    Index of active Harmony projects. Each project file is PRJ-###_Name.yaml.
+
+projects:
+  - id: PRJ-001
+    name: Codegen Pipeline
+    path: Codex/Projects/PRJ-001_Codegen_Pipeline.yaml
+    status: planned
+  - id: PRJ-002
+    name: Embeddings Service
+    path: Codex/Projects/PRJ-002_Embeddings_Service.yaml
+    status: planned
+  - id: PRJ-003
+    name: CI Automation
+    path: Codex/Projects/PRJ-003_CI_Automation.yaml
+    status: planned
+  - id: PRJ-004
+    name: Mesh Simulator
+    path: Codex/Projects/PRJ-004_Mesh_Simulator.yaml
+    status: planned
+  - id: PRJ-005
+    name: Docs Tooling
+    path: Codex/Projects/PRJ-005_Docs_Tooling.yaml
+    status: planned
+  - id: PRJ-006
+    name: Consent Services
+    path: Codex/Projects/PRJ-006_Consent_Services.yaml
+    status: planned
+  - id: PRJ-007
+    name: Data Pipeline
+    path: Codex/Projects/PRJ-007_DataPipeline.yaml
+    status: planned

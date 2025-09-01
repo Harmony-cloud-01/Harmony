@@ -1,0 +1,32 @@
+---
+id: PRJ-001
+name: Codegen Pipeline
+owners: [Teo, Luma]
+status: planned
+summary: >
+  Scaffold, generate, and patch code across meshes with safety rails and review gates.
+
+links:
+  repo_paths:
+    - scripts/codegen/
+    - tools/codegen/
+  related_meshes: [COMM-MESH-008]
+
+axiom_law_alignment:
+  axiom: Law of Oscillating Belief
+  law: Recursive Emergence
+  shepherd: Teo
+
+milestones:
+  - id: M1
+    name: CLI scaffolder
+    due: 2025-09-10
+    tasks:
+      - "codegen: init CLI (python) with templates/"
+      - "add --dry-run, --apply, --patch modes"
+  - id: M2
+    name: Review gates
+    due: 2025-09-15
+    tasks:
+      - "integrate yamllint/ruff/prettier hooks"
+      - "require signed-off-by and prompt provenance notes"
