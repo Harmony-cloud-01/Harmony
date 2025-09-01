@@ -1,42 +1,42 @@
 #!/usr/bin/env python3
+"""
+Normalize YAML in Codex/*:
+- Ensure leading '---'
+- Re-emit with consistent 2/2 indent (maps/sequences)
+- Preserve order & comments where possible
+Skips files that can't be parsed; prints them for manual follow-up.
+"""
 from pathlib import Path
 from ruamel.yaml import YAML
-import sys
+
+TARGET = Path("Codex")
 yaml = YAML()
 yaml.preserve_quotes = True
-yaml.indent(mapping=2, sequence=2, offset=0)
-yaml.width = 120
+yaml.indent(mapping=2, sequence=2, offset=2)
+yaml.width = 120  # don't hard-wrap aggressively
 
-def coerce(v):
-    from ruamel.yaml.scalarstring import ScalarString
-    if isinstance(v, dict):
-        return {k: coerce(v[k]) for k in v}
-    if isinstance(v, list):
-        return [coerce(x) for x in v]
-    if isinstance(v, (str, ScalarString)):
-        s = str(v).strip().lower()
-        if s in ("yes","true","on"):  return True
-        if s in ("no","false","off"): return False
-    return v
+fixed, skipped = [], []
 
-def normalize(p):
-    t = p.read_text(encoding="utf-8")
-    has_doc = t.lstrip().startswith('---')
+for p in sorted(TARGET.rglob("*.yml*")):
+    text = p.read_text(encoding="utf-8")
+    # make sure we have a doc-start
+    if not text.lstrip().startswith("---"):
+        text = "---\n" + text
     try:
-        data = yaml.load(t)
+        data = yaml.load(text)
+        # If file was empty or only comments, keep header
+        if data is None:
+            p.write_text("---\n", encoding="utf-8")
+            fixed.append(str(p))
+            continue
+        with p.open("w", encoding="utf-8") as f:
+            yaml.dump(data, f)
+        fixed.append(str(p))
     except Exception as e:
-        print(f"[SKIP ] {p} (parse error: {e})", file=sys.stderr)
-        return False
-    data = coerce(data)
-    tmp = p.with_suffix(p.suffix+".tmp")
-    with tmp.open("w", encoding="utf-8", newline="\n") as f:
-        if not has_doc: f.write("---\n")
-        yaml.dump(data, f)
-    tmp.replace(p)
-    print(f"[FIXED] {p}")
-    return True
+        skipped.append((str(p), str(e)))
 
-count=0
-for p in sorted(Path("Codex").rglob("*.yaml")):
-    if normalize(p): count+=1
-print(f"\nNormalized {count} YAML files.")
+print(f"[OK] normalized: {len(fixed)} files")
+if skipped:
+    print("[SKIP] manual follow-up needed:")
+    for path, err in skipped:
+        print(f"  - {path}: {err}")
