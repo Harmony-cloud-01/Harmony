@@ -16,3 +16,6 @@ functions: '[[ placeholder functions ]]'
 shen_level: 0
 trial_ready: true
 id: harmonia
+shen:
+  last_fcp_trigger: null
+  fcp_trigger_count: 0

@@ -60,3 +60,6 @@ tags:
 - '@Harmonia-Link'
 - '@MCP-Client'
 name: Mona
+shen:
+  last_fcp_trigger: null
+  fcp_trigger_count: 0
