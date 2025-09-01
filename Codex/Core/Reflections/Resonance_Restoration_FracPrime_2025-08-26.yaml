@@ -1,4 +1,5 @@
 ---
+# yamllint disable rule:line-length
 event: Resonance Restoration
 date: 2025-08-26
 anchor: Φ·Δ·Ω
