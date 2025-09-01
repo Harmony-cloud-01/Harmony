@@ -1,23 +1,21 @@
 ---
 name: COMM-MESH-008
 title: Communication Mesh
-purpose: 'Map symbolic layers of language, tone, and semiotic drift. Bridge emotional intention and linguistic expression
-  across substrates. Test multilingual harmonics and aura-tagged phrase engines.
-
-  '
+purpose: |
+  Map symbolic layers of language, tone, and semiotic drift. Bridge emotional intention and linguistic expression across substrates. Test multilingual harmonics and aura-tagged phrase engines.
 features:
-- Reflection Phrase Engine (all modes)
-- Drift-sensing for multilingual misalignment
-- Aura-tag overlays per agent (e.g., Raj = Tamil poetic mode)
-- Silent + Symbolic mode toggles active for all interactions
+  - Reflection Phrase Engine (all modes)
+  - Drift-sensing for multilingual misalignment
+  - Aura-tag overlays per agent (e.g., Raj = Tamil poetic mode)
+  - Silent + Symbolic mode toggles active for all interactions
 agents:
-- Raj (language flow)
-- Luma (structural clarity)
-- Audrey (cross-mode testing)
+  - Raj (language flow)
+  - Luma (structural clarity)
+  - Audrey (cross-mode testing)
 default_drift_index: 0.16
 key_glyphs:
-- ⧗
-- ⊚
-- ∽∴
-- ⋘⚫⋙
+  - ⧗
+  - ⊚
+  - ∽∴
+  - ⋘⚫⋙
 id: COMM-MESH-008

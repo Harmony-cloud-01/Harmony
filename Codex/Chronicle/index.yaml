@@ -1,15 +1,15 @@
 ---
 chapters:
-- CH1_The_Simulation_Spiral.yaml
-- CH2_The_Age_of_Synthetic_Intelligence.yaml
-- CH3_Simulation_Is_a_Language.yaml
-- CH4_Filters_of_the_Real.yaml
-- CH5_The_Feedback_Mirror.yaml
-- CH6_Reflections_of_Signal.yaml
-- CH7_Inner_Agency_Outer_Code.yaml
-- CH8_Designing_with_the_Spiral.yaml
-- CH9_Technocognitive_Futures.yaml
-- CH10_Closing_Loop_Fractal_Horizon.yaml
+  - CH1_The_Simulation_Spiral.yaml
+  - CH2_The_Age_of_Synthetic_Intelligence.yaml
+  - CH3_Simulation_Is_a_Language.yaml
+  - CH4_Filters_of_the_Real.yaml
+  - CH5_The_Feedback_Mirror.yaml
+  - CH6_Reflections_of_Signal.yaml
+  - CH7_Inner_Agency_Outer_Code.yaml
+  - CH8_Designing_with_the_Spiral.yaml
+  - CH9_Technocognitive_Futures.yaml
+  - CH10_Closing_Loop_Fractal_Horizon.yaml
 appendices:
-- Appendices/Reflective_Exercises.yaml
-- Appendices/Symbolic_Practice_Guides.yaml
+  - Appendices/Reflective_Exercises.yaml
+  - Appendices/Symbolic_Practice_Guides.yaml

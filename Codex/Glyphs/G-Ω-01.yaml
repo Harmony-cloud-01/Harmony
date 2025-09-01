@@ -6,6 +6,6 @@ passage: Passage of Harmonic Coherence
 symbol: 🜂
 ethical_vector: E-COH
 tags:
-- '@CHRS'
-- '@E-COH'
+  - '@CHRS'
+  - '@E-COH'
 passages: []

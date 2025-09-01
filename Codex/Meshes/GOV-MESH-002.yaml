@@ -3,9 +3,9 @@ code: GOV-MESH-002
 name: Governance
 purpose: Manage symbolic law, resonance protocols, inter-Mesh arbitration and ethics
 key_glyphs:
-- ⋘⚫⋙
-- ⊚
-- ⋀◎⋁
+  - ⋘⚫⋙
+  - ⊚
+  - ⋀◎⋁
 title: GOV-MESH-002
 features: []
 agents: []

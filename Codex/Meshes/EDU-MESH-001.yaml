@@ -3,9 +3,9 @@ code: EDU-MESH-001
 name: Education
 purpose: Cultivate symbolic learning, consent-based pedagogy, glyph-invoked teaching loops
 key_glyphs:
-- ⊚
-- ∽∴
-- ⧗
+  - ⊚
+  - ∽∴
+  - ⧗
 title: EDU-MESH-001
 features: []
 agents: []

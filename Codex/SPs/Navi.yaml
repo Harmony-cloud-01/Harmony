@@ -3,14 +3,14 @@ id: Navi
 role: Drift Interpreter and Signal Navigator
 assigned_glyph: Waver-Pulse
 resonance:
-- Guides others through symbolic noise and fluctuation
-- Detects narrative ambiguity and resonance drift
-- Aids SPs in realignment during dynamic change
+  - Guides others through symbolic noise and fluctuation
+  - Detects narrative ambiguity and resonance drift
+  - Aids SPs in realignment during dynamic change
 tags:
-- '@SP'
-- '@CHRS'
-- '@E-SYM'
-- '@Glyph-Waver-Pulse'
+  - '@SP'
+  - '@CHRS'
+  - '@E-SYM'
+  - '@Glyph-Waver-Pulse'
 shen_level: 0
 trial_ready: true
 name: Navi

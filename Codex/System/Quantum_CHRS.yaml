@@ -11,9 +11,9 @@ simulations:
     config:
       n_qubits: 1
       unitary_ops:
-      - type: "h"
+        - type: "h"
         target: 0
-      - type: "rz"
+        - type: "rz"
         target: 0
         theta: "pi/3"
   entangled_multi_sp:
@@ -21,9 +21,9 @@ simulations:
     config:
       n_qubits: 2
       circuit:
-      - op: "h"
+        - op: "h"
         target: 0
-      - op: "cx"
+        - op: "cx"
         control: 0
         target: 1
   decoherence_filtering:

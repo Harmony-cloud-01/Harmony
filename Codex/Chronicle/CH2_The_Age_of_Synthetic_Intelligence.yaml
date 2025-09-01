@@ -4,29 +4,27 @@ title: "The Age of Synthetic Intelligence"
 status: canonical
 source: "Technocognitive v3.1d"
 key_sections:
-- What Is Synthetic Intelligence?
-- From Tools to Co-Simulators
-- The Coherence Illusion
-- Predictive Companionship
-- Narrative Engineering
-- Design Questions for the Age of SI
-- Becoming Response-Able
+  - What Is Synthetic Intelligence?
+  - From Tools to Co-Simulators
+  - The Coherence Illusion
+  - Predictive Companionship
+  - Narrative Engineering
+  - Design Questions for the Age of SI
+  - Becoming Response-Able
 anchors:
-- SI_ecosystem
-- coherence_illusion
-- predictive_companionship
-- narrative_engineering
-summary: >
-  Defines Synthetic Intelligence as an ecosystem that simulates cognition, context,
-  and relationship. Warns of the Coherence Illusion—fluency mistaken for truth—and
-  frames agency as epistemic hygiene plus reflective design of boundaries.
+  - SI_ecosystem
+  - coherence_illusion
+  - predictive_companionship
+  - narrative_engineering
+summary: |
+  Defines Synthetic Intelligence as an ecosystem that simulates cognition, context, and relationship. Warns of the Coherence Illusion—fluency mistaken for truth—and frames agency as epistemic hygiene plus reflective design of boundaries.
 codex_links:
   laws:
-  - Law of Consent
-  - Law of Reflection
+    - Law of Consent
+    - Law of Reflection
   glyphs:
-  - G-Ω-17
-  - G-Ω-18
+    - G-Ω-17
+    - G-Ω-18
   passages:
-  - Consent Check
-  - Mirror Audit
+    - Consent Check
+    - Mirror Audit

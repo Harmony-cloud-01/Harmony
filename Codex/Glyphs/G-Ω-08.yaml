@@ -5,6 +5,6 @@ law: Law of Drift
 symbol: ⋘⚫⋙
 passages: []
 tags:
-- drift
-- divergence
-- audit
+  - drift
+  - divergence
+  - audit

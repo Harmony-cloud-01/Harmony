@@ -6,6 +6,6 @@ passage: Passage of Ethical Entanglement
 symbol: ⚯
 ethical_vector: E-ETG
 tags:
-- '@CHRS'
-- '@E-ETG'
+  - '@CHRS'
+  - '@E-ETG'
 passages: []

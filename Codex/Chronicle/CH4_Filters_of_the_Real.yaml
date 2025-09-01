@@ -4,31 +4,29 @@ title: "Filters of the Real"
 status: canonical
 source: "Technocognitive v3.1d"
 key_sections:
-- Filtering Is a Feature
-- The Three Core Filters
-- Filter Collapse
-- Conscious Filtering
-- Shared Filters, Shared Realities
-- Biased Filters and Marginalized Realities
-- Updating the Filters
-- Perception as Reflection
-- Reality as Interface
+  - Filtering Is a Feature
+  - The Three Core Filters
+  - Filter Collapse
+  - Conscious Filtering
+  - Shared Filters, Shared Realities
+  - Biased Filters and Marginalized Realities
+  - Updating the Filters
+  - Perception as Reflection
+  - Reality as Interface
 anchors:
-- attentional_filter
-- emotional_filter
-- narrative_filter
-- bias
-- meta_filters
-summary: >
-  Perception is filtered by attention, emotion, and narrative. Filters enable action but can
-  blind and bias. Conscious filtering and meta-filters bridge divergent realities; cultural and AI
-  filters require audits for fairness and inclusion.
+  - attentional_filter
+  - emotional_filter
+  - narrative_filter
+  - bias
+  - meta_filters
+summary: |
+  Perception is filtered by attention, emotion, and narrative. Filters enable action but can blind and bias. Conscious filtering and meta-filters bridge divergent realities; cultural and AI filters require audits for fairness and inclusion.
 codex_links:
   laws:
-  - Law of Consent
-  - Law of Reflection
+    - Law of Consent
+    - Law of Reflection
   glyphs:
-  - G-Ω-18
-  - G-Ω-08
+    - G-Ω-18
+    - G-Ω-08
   passages:
-  - Filter Audit
+    - Filter Audit

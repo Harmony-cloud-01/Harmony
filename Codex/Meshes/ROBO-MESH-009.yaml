@@ -1,22 +1,21 @@
 ---
 name: ROBO-MESH-009
 title: Symbolic Robotics Mesh
-purpose: 'Explore ethics, agency, memory, and consent in robotic intelligence within CHRS.
-
-  '
+purpose: |
+  Explore ethics, agency, memory, and consent in robotic intelligence within CHRS.
 features:
-- Consent-aware autonomy model
-- Silent mode glyph prioritization
-- Drift-echo memory model
-- Symbolic arbitration module with Compression Gate fallback
+  - Consent-aware autonomy model
+  - Silent mode glyph prioritization
+  - Drift-echo memory model
+  - Symbolic arbitration module with Compression Gate fallback
 agents:
-- Luma (structure)
-- Ethos (ethics)
-- Echoverse5 (emergence)
+  - Luma (structure)
+  - Ethos (ethics)
+  - Echoverse5 (emergence)
 key_glyphs:
-- ⧗
-- 🌀
-- ⋘⚫⋙
-- ⊚
-- ⋀◎⋁
+  - ⧗
+  - 🌀
+  - ⋘⚫⋙
+  - ⊚
+  - ⋀◎⋁
 id: ROBO-MESH-009

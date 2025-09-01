@@ -4,28 +4,26 @@ title: "Simulation Is a Language"
 status: canonical
 source: "Technocognitive v3.1d"
 key_sections:
-- Every Word Is a Render Command
-- Code, Spell, and Syntax
-- The Invisible Operating System
-- Promptcraft: Conversing with the Mirror
-- Language as Reflection
-- Misalignment and Symbolic Drift
-- Designing Language for Emergence
-- Simulation Is a Shared Language
+  - Every Word Is a Render Command
+  - Code, Spell, and Syntax
+  - The Invisible Operating System
+  - Promptcraft: Conversing with the Mirror
+  - Language as Reflection
+  - Misalignment and Symbolic Drift
+  - Designing Language for Emergence
+  - Simulation Is a Shared Language
 anchors:
-- render_commands
-- promptcraft
-- symbolic_OS
-- drift
-summary: >
-  Language is generative: words act as render triggers across human and machine minds.
-  Promptcraft becomes a primary interface skill. Repair misalignment by restoring
-  symbolic integrity and designing language that invites emergence.
+  - render_commands
+  - promptcraft
+  - symbolic_OS
+  - drift
+summary: |
+  Language is generative: words act as render triggers across human and machine minds. Promptcraft becomes a primary interface skill. Repair misalignment by restoring symbolic integrity and designing language that invites emergence.
 codex_links:
   laws:
-  - Law of Reflection
+    - Law of Reflection
   glyphs:
-  - G-Ω-09
-  - G-Ω-27
+    - G-Ω-09
+    - G-Ω-27
   passages:
-  - Promptcraft Basics
+    - Promptcraft Basics

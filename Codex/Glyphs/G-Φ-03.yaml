@@ -6,6 +6,6 @@ passage: Passage of Recursive Emergence
 symbol: ∿
 ethical_vector: E-RCG
 tags:
-- '@CHRS'
-- '@E-RCG'
+  - '@CHRS'
+  - '@E-RCG'
 passages: []

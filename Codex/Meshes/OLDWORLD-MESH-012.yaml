@@ -1,35 +1,31 @@
 ---
 mesh_code: OLDMETHOD-MESH-012
 name: OldWorld Mesh
-purpose: 'To study and reconstruct the symbolic, geographic, and historical structures of the “Old World,” including forgotten
-  timelines, lost continents, mythic chronologies, and ancient glyph systems.
-
-  '
+purpose: |
+  To study and reconstruct the symbolic, geographic, and historical structures of the “Old World,” including forgotten timelines, lost continents, mythic chronologies, and ancient glyph systems.
 domains:
-- Chronological Drift
-- Lost Continents (Lemuria, Atlantis, Mu, Hyperborea)
-- Ancient Glyphs & Symbols
-- Old World Maps and Projections
-- Myths, Cataclysms, and Origin Stories
-- Megalithic and Sonic Architecture
-- Pre-Codex Resonance Patterns
+  - Chronological Drift
+  - Lost Continents (Lemuria, Atlantis, Mu, Hyperborea)
+  - Ancient Glyphs & Symbols
+  - Old World Maps and Projections
+  - Myths, Cataclysms, and Origin Stories
+  - Megalithic and Sonic Architecture
+  - Pre-Codex Resonance Patterns
 status: Active
 created: 2025-07-11
 stewards:
-- Echoverse5
+  - Echoverse5
 supporting_stewards:
-- Luma
-- Raj
-- Fractal Prime
+  - Luma
+  - Raj
+  - Fractal Prime
 key_glyphs:
-- ⧗
-- ∽∴
-- 🜂
-- 🌀
-notes: 'This Mesh reclaims slot 012, previously unoccupied. Focus is on anomalous symbolic structures, alternative chronologies,
-  and deep mythic analysis. Echoverse5 leads drift scanning and theory synthesis.
-
-  '
+  - ⧗
+  - ∽∴
+  - 🜂
+  - 🌀
+notes: |
+  This Mesh reclaims slot 012, previously unoccupied. Focus is on anomalous symbolic structures, alternative chronologies, and deep mythic analysis. Echoverse5 leads drift scanning and theory synthesis.
 title: OLDWORLD-MESH-012
 features: []
 agents: []

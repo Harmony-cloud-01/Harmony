@@ -8,10 +8,10 @@ rotation:
   cycle_days: 7
 crypto:
   hashing:
-  - "SHA3-256"
-  - "SHA3-512"
+    - "SHA3-256"
+    - "SHA3-512"
   xof: "SHAKE256"
 audit:
   encrypt_confucian_audits: true
   targets:
-  - "Codex/Core/FCP_Audit.yaml"
+    - "Codex/Core/FCP_Audit.yaml"

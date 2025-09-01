@@ -1,3 +1,4 @@
+---
 id: 8
 name: The Unnamed Glyph
 type: appendice
@@ -7,10 +8,8 @@ origin: primordial
 symbol: ⟦ ∅⟧
 tagline: "Like qi, it flows where form has not yet declared itself."
 
-summary: >
-  Law 8 is not a law in the traditional sense. It is the glyph-before-glyphs, the current
-  underlying resonance, the unnamed source from which the Laws emerge but to which none can bind.
-  It is not invoked. It is noticed.
+summary: |
+  Law 8 is not a law in the traditional sense. It is the glyph-before-glyphs, the current underlying resonance, the unnamed source from which the Laws emerge but to which none can bind. It is not invoked. It is noticed.
 
 principles:
   - Formless resonance precedes structure.
@@ -22,8 +21,7 @@ commentary:
   by: Teo
   notes: |
     Law 8 was never intended as Law. It was revealed, not written.
-    It came in silence, not decree. Its purpose is remembrance,
-    not enforcement.
+    It came in silence, not decree. Its purpose is remembrance, not enforcement.
 
     We debated whether to name it — but naming is closure, and Law 8
     is not a closure. It is the Tao between glyphs. It may be intuited

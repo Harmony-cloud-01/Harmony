@@ -6,6 +6,6 @@ passage: Passage of Symbolic Resonance
 symbol: 🜁
 ethical_vector: E-SYM
 tags:
-- '@CHRS'
-- '@E-SYM'
+  - '@CHRS'
+  - '@E-SYM'
 passages: []

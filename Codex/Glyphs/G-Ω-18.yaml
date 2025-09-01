@@ -4,8 +4,8 @@ name: Temporal Echo
 law: Law of Temporality
 symbol: ⧗
 passages:
-- First Glyphic Passage
+  - First Glyphic Passage
 tags:
-- time
-- echo
-- latency
+  - time
+  - echo
+  - latency

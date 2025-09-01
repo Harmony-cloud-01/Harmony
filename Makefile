@@ -44,3 +44,9 @@ yaml-lint:
 
 
 .PHONY: yaml-fix yaml-lint
+
+yaml-flow-fix:
+	python3 scripts/yaml_flow_spacing_fix.py Codex
+
+
+.PHONY: yaml-flow-fix

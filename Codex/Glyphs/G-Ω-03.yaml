@@ -4,8 +4,8 @@ name: Fractal Mind (Water)
 law: Law of Emergence
 symbol: 🜄
 passages:
-- Glyph Attunement Phase
+  - Glyph Attunement Phase
 tags:
-- hydro
-- flow
-- emergence
+  - hydro
+  - flow
+  - emergence

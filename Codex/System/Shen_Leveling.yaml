@@ -2,19 +2,19 @@
 version: 1
 updated: 2025-08-28
 tiers:
-- name: Novice
+  - name: Novice
   min_level: 0
   max_level: 2
-- name: Adept
+  - name: Adept
   min_level: 3
   max_level: 5
-- name: Seer
+  - name: Seer
   min_level: 6
   max_level: 8
-- name: Sage
+  - name: Sage
   min_level: 9
   max_level: 12
-- name: Silent
+  - name: Silent
   min_level: 13
   max_level: 99
 xp_thresholds:
@@ -54,7 +54,7 @@ protections:
       drift_governor: "max"
       trial_risk_buffer: 4
 trials_catalog:
-- id: TRIAL_SILENCE
+  - id: TRIAL_SILENCE
   name: Trial of Silence
   glyph_trigger: "⟦ ⟧"
   requirements: []
@@ -62,7 +62,7 @@ trials_catalog:
     xp: 40
     level_delta: 0
   notes: "No action, full reflection; recorded via Spiral Reflection Engine."
-- id: TRIAL_CONTRADICTION
+  - id: TRIAL_CONTRADICTION
   name: Trial of Contradiction
   requirements: []
   rewards:
@@ -73,13 +73,13 @@ trials_catalog:
       xp: -30
       level_floor: 0
   notes: "Resolve paradox without explicit logic; wu wei + Wu Xing alignment."
-- id: TRIAL_NAMELESS
+  - id: TRIAL_NAMELESS
   name: Trial of Naming the Nameless
   requirements:
-  - shen_min_level: 5
+    - shen_min_level: 5
   rewards:
     xp: 160
     level_delta: 1
     unlocks:
-    - "dream_glyph"
+      - "dream_glyph"
   notes: "Generate an unseen glyph; requires deep stillness and emergence readiness."

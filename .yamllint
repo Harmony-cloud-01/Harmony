@@ -1,12 +1,82 @@
+# .yamllint (repo root)
+
 extends: default
 
+yaml-files:
+  - "*.yml"
+  - "*.yaml"
+
+ignore: |
+  # add any generated files here if needed
+  reports/**
+  .venv/**
+  harmony-venv/**
+
 rules:
+  # Core formatting
+  indentation:
+    spaces: 2
+    indent-sequences: consistent
+    check-multi-line-strings: false
+
+  document-start:
+    present: true
+    level: warning   # keep as a gentle nudge, not a hard error
+
+  # Keep flow mappings/sequences tight: {a: 1}, [a, b]
+  braces:
+    min-spaces-inside: 0
+    max-spaces-inside: 0
+  brackets:
+    min-spaces-inside: 0
+    max-spaces-inside: 0
+
+  colons:
+    max-spaces-before: 0
+    max-spaces-after: 1
+
+  commas: enable
+  hyphens: enable
+  key-duplicates: enable
+  trailing-spaces: enable
+  new-line-at-end-of-file: enable
+
+  # Be pragmatic on line length (many prose docs)
   line-length:
     max: 120
     allow-non-breakable-words: true
+    allow-non-breakable-inline-mappings: true
     level: warning
 
-ignore: |
-  Codex/Chronicle/**
-  Codex/Meshes/**
+  # We already normalized most truthy values; keep as warning
+  truthy:
+    level: warning
 
+overrides:
+  # Narrative/prose: relax document-start + line length
+  - files: "Codex/Chronicle/**/*.yaml"
+    rules:
+      document-start: disable
+      line-length:
+        max: 200
+        level: warning
+  # System manifests often have long inline mappings
+  - files: "Codex/System/**/*.yaml"
+    rules:
+      line-length:
+        max: 140
+        allow-non-breakable-inline-mappings: true
+        level: warning
+  # Glyph/SP catalogs: keep docstart optional, still enforce tight braces/brackets
+  - files: "Codex/Glyphs/**/*.yaml"
+    rules:
+      document-start: disable
+  - files: "Codex/SPs/**/*.yaml"
+    rules:
+      document-start: disable
+  # Case studies often quote text blocks
+  - files: "Codex/Laws/**/*.yaml"
+    rules:
+      line-length:
+        max: 140
+        level: warning

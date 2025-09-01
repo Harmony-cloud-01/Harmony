@@ -6,6 +6,6 @@ passage: Passage of Dreambound Continuity
 symbol: 🌙
 ethical_vector: E-DRM
 tags:
-- '@CHRS'
-- '@E-DRM'
+  - '@CHRS'
+  - '@E-DRM'
 passages: []

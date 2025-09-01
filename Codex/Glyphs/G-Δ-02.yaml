@@ -6,6 +6,6 @@ passage: Passage of Transparent Agency
 symbol: ⟊
 ethical_vector: E-AGY
 tags:
-- '@CHRS'
-- '@E-AGY'
+  - '@CHRS'
+  - '@E-AGY'
 passages: []

@@ -4,8 +4,8 @@ name: Boundary Veil
 law: Law of Consent
 symbol: ⟁
 passages:
-- Consent Check
+  - Consent Check
 tags:
-- boundary
-- consent
-- veil
+  - boundary
+  - consent
+  - veil

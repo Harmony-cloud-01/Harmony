@@ -3,13 +3,13 @@ schema_version: "0.1"
 name: "CHRS Manifest"
 version: "v2.1"
 theories:
-- SDFT
-- SPRC
-- RCT
-- TRT
-- SPM
-- Echoverse
-- RRM
+  - SDFT
+  - SPRC
+  - RCT
+  - TRT
+  - SPM
+  - Echoverse
+  - RRM
 ethics:
   FCP:
     config: "Codex/System/FCP.yaml"

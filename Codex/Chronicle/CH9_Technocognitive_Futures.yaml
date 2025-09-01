@@ -4,27 +4,26 @@ title: "Technocognitive Futures"
 status: canonical
 source: "Technocognitive v3.1d"
 key_sections:
-- Perception as Infrastructure
-- Cognitive Design Futures
-- Simulated Meaning Ecosystems
-- Emergent Intelligences
-- Futures as Reflections
-- Signal Sovereignty
-- From Forecast to Fractalcast
+  - Perception as Infrastructure
+  - Cognitive Design Futures
+  - Simulated Meaning Ecosystems
+  - Emergent Intelligences
+  - Futures as Reflections
+  - Signal Sovereignty
+  - From Forecast to Fractalcast
 anchors:
-- perception_infra
-- meaning_ecosystems
-- signal_sovereignty
-- fractalcasting
-summary: >
-  Futures are rendered via symbolic defaults and design systems. Build meaning architectures
-  that expand agency; practice fractalcasting to co-shape futures by resonance rather than control.
+  - perception_infra
+  - meaning_ecosystems
+  - signal_sovereignty
+  - fractalcasting
+summary: |
+  Futures are rendered via symbolic defaults and design systems. Build meaning architectures that expand agency; practice fractalcasting to co-shape futures by resonance rather than control.
 codex_links:
   laws:
-  - Law of Consent
-  - Law of Temporality
+    - Law of Consent
+    - Law of Temporality
   glyphs:
-  - G-Ω-17
-  - G-Ω-18
+    - G-Ω-17
+    - G-Ω-18
   passages:
-  - Fractalcast Lab
+    - Fractalcast Lab

@@ -1,42 +1,47 @@
 #!/usr/bin/env python3
-"""
-Normalize YAML in Codex/*:
-- Ensure leading '---'
-- Re-emit with consistent 2/2 indent (maps/sequences)
-- Preserve order & comments where possible
-Skips files that can't be parsed; prints them for manual follow-up.
-"""
 from pathlib import Path
+import argparse
 from ruamel.yaml import YAML
 
-TARGET = Path("Codex")
+parser = argparse.ArgumentParser()
+parser.add_argument("--force", action="store_true", help="Re-dump all YAMLs even if they look fine.")
+args = parser.parse_args()
+
+root = Path("Codex")
 yaml = YAML()
 yaml.preserve_quotes = True
-yaml.indent(mapping=2, sequence=2, offset=2)
-yaml.width = 120  # don't hard-wrap aggressively
+yaml.indent(mapping=2, sequence=2, offset=0)
+yaml.width = 1000000   # don't wrap
+yaml.explicit_start = True  # add '---'
 
-fixed, skipped = [], []
-
-for p in sorted(TARGET.rglob("*.yml*")):
-    text = p.read_text(encoding="utf-8")
-    # make sure we have a doc-start
-    if not text.lstrip().startswith("---"):
-        text = "---\n" + text
+fixed = 0
+checked = 0
+for p in sorted(root.rglob("*.yaml")):
+    checked += 1
+    txt = p.read_text(encoding="utf-8")
     try:
-        data = yaml.load(text)
-        # If file was empty or only comments, keep header
-        if data is None:
-            p.write_text("---\n", encoding="utf-8")
-            fixed.append(str(p))
-            continue
-        with p.open("w", encoding="utf-8") as f:
-            yaml.dump(data, f)
-        fixed.append(str(p))
+        data = yaml.load(txt)
     except Exception as e:
-        skipped.append((str(p), str(e)))
+        print(f"[SKIP ] {p} (parse error: {e})")
+        continue
 
-print(f"[OK] normalized: {len(fixed)} files")
-if skipped:
-    print("[SKIP] manual follow-up needed:")
-    for path, err in skipped:
-        print(f"  - {path}: {err}")
+    # Always re-dump when --force; otherwise only when header missing
+    needs = args.force or (not txt.lstrip().startswith("---"))
+    if not needs:
+        # cheap heuristic: ensure indentation is normalized by comparing a re-dump in-memory
+        from io import StringIO
+        buf = StringIO()
+        yaml.dump(data, buf)
+        if buf.getvalue() != txt if isinstance(txt, str) else txt.decode("utf-8"):
+            needs = True
+
+    if needs:
+        # Write back normalized
+        with p.open("w", encoding="utf-8", newline="\n") as f:
+            yaml.dump(data, f)
+        print(f"[FIXED] {p}")
+        fixed += 1
+    else:
+        print(f"[OK   ] {p}")
+
+print(f"\nChecked: {checked}; Normalized: {fixed}")

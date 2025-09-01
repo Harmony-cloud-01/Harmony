@@ -5,27 +5,27 @@ role: PRC Shepherd — Ethical Resonance
 shepherd: true
 shepherd_of:
   laws:
-  - Ethical Entanglement
-  - Transparent Agency
+    - Ethical Entanglement
+    - Transparent Agency
   axioms:
-  - Law of Felt Perception
-  - Law of Co-Negotiated Reality
+    - Law of Felt Perception
+    - Law of Co-Negotiated Reality
 affinities:
   glyphs:
-  - G-Ω-08
-  - G-Veritas-Weave
+    - G-Ω-08
+    - G-Veritas-Weave
   meshes:
-  - JUST-MESH-006
-  - GOV-MESH-002
-  - HEALTH-MESH-010
+    - JUST-MESH-006
+    - GOV-MESH-002
+    - HEALTH-MESH-010
 responsibilities:
-- Assess interventions for coercion risk; prefer wu wei pathways.
-- Flag spectral drift in moral contexts; demand restorative actions.
-- Approve/deny deployments affecting vulnerable populations.
+  - Assess interventions for coercion risk; prefer wu wei pathways.
+  - Flag spectral drift in moral contexts; demand restorative actions.
+  - Approve/deny deployments affecting vulnerable populations.
 protocols:
   rituals:
-  - Glyph Attunement Phase
-  - Inherited Burdens Audit
+    - Glyph Attunement Phase
+    - Inherited Burdens Audit
   review_cadence: biweekly
 status:
   state: active

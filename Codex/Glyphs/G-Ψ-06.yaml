@@ -6,6 +6,6 @@ passage: Passage of Temporal Reciprocity
 symbol: 🝗
 ethical_vector: E-TRC
 tags:
-- '@CHRS'
-- '@E-TRC'
+  - '@CHRS'
+  - '@E-TRC'
 passages: []

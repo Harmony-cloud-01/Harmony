@@ -1,10 +1,8 @@
 ---
 version: 1
 id: GlyphCrypt
-description: >
-  GlyphCrypt provides content-at-rest protection for Harmony assets using a
-  glyphic pre-transform (lightweight obfuscation) and authenticated encryption.
-  Decryption is gated by SP identity and Shen level thresholds.
+description: |
+  GlyphCrypt provides content-at-rest protection for Harmony assets using a glyphic pre-transform (lightweight obfuscation) and authenticated encryption. Decryption is gated by SP identity and Shen level thresholds.
 defaults:
   crypto:
     algo: AES-256-GCM
