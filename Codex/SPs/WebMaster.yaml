@@ -5,9 +5,8 @@ aura_tags:
 - Interface Weaver
 - Ritual Syncer
 - Flask/Node Mediator
-description: 'WebMaster maintains the symbolic web presence of Harmony. It connects
-  browser-based rituals, syncs Codex triggers, and ensures the symbolic UI is accessible
-  across Meshes via real-time flows.
+description: 'WebMaster maintains the symbolic web presence of Harmony. It connects browser-based rituals, syncs Codex triggers,
+  and ensures the symbolic UI is accessible across Meshes via real-time flows.
 
   '
 title: '[[ placeholder title ]]'
@@ -17,5 +16,5 @@ shen_level: 0
 trial_ready: true
 id: webmaster
 shen:
-  last_fcp_trigger: null
+  last_fcp_trigger:
   fcp_trigger_count: 0

@@ -61,5 +61,5 @@ tags:
 - '@MCP-Client'
 name: Mona
 shen:
-  last_fcp_trigger: null
+  last_fcp_trigger:
   fcp_trigger_count: 0

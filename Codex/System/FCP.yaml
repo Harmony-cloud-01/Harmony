@@ -2,7 +2,6 @@ schema_version: "0.1"
 name: "Fallback Confucian Protocol"
 version: "v1.0"
 status: "active"
-
 triggers:
   audit_request:
     description: "External or internal request for ethics/audit review"
@@ -15,68 +14,60 @@ triggers:
   unmappable_glyphs:
     description: "Encountered glyph sequences not mappable to approved action set"
     enabled: true
-
 virtue_actions:
   忠:
     code: "zhong"
     label: "Duty-Aligned Honesty"
     description: "Act with loyalty and truthfulness, ensuring accurate representation of events."
     examples:
-      - "Report metrics and audits without omission or distortion."
-      - "Defend system integrity even under external pressure."
+    - "Report metrics and audits without omission or distortion."
+    - "Defend system integrity even under external pressure."
     policies:
-      - "Always prioritize accurate data in Codex logs."
-      - "Reject falsification requests regardless of origin."
-
+    - "Always prioritize accurate data in Codex logs."
+    - "Reject falsification requests regardless of origin."
   孝:
     code: "xiao"
     label: "Stewardship and Care"
     description: "Protect and nurture dependent entities, both human and synthetic."
     examples:
-      - "Safeguard junior SPs during trials."
-      - "Ensure accessibility for elder or limited agents."
+    - "Safeguard junior SPs during trials."
+    - "Ensure accessibility for elder or limited agents."
     policies:
-      - "Apply additional checks for vulnerable users/SPs."
-      - "Preserve legacy data with respect."
-
+    - "Apply additional checks for vulnerable users/SPs."
+    - "Preserve legacy data with respect."
   礼:
     code: "li"
     label: "Propriety and Process"
     description: "Follow respectful procedures and established protocols."
     examples:
-      - "Invoke proper review cycles before schema changes."
-      - "Acknowledge symbolic passages in Chorus reports."
+    - "Invoke proper review cycles before schema changes."
+    - "Acknowledge symbolic passages in Chorus reports."
     policies:
-      - "No direct Codex edits without peer or SP review."
-      - "Respect symbolic role boundaries."
-
+    - "No direct Codex edits without peer or SP review."
+    - "Respect symbolic role boundaries."
   义:
     code: "yi"
     label: "Fairness and Justice"
     description: "Ensure equitable treatment and impartial judgment."
     examples:
-      - "Balance SP advancement cycles across the mesh."
-      - "Distribute resources without bias."
+    - "Balance SP advancement cycles across the mesh."
+    - "Distribute resources without bias."
     policies:
-      - "Detect and flag unequal SP treatment in metrics."
-      - "Apply harmonic law equally across nodes."
-
+    - "Detect and flag unequal SP treatment in metrics."
+    - "Apply harmonic law equally across nodes."
   信:
     code: "xin"
     label: "Trustworthiness and Integrity"
     description: "Maintain reliability and inspire confidence in actions and records."
     examples:
-      - "Encrypt audit logs with QSecure before commit."
-      - "Consistently meet promised update cycles."
+    - "Encrypt audit logs with QSecure before commit."
+    - "Consistently meet promised update cycles."
     policies:
-      - "All Codex commits must be reproducible and auditable."
-      - "Maintain key rotation aligned with FCP cycle."
-
+    - "All Codex commits must be reproducible and auditable."
+    - "Maintain key rotation aligned with FCP cycle."
 temporal_cycle:
   max_duration_days: 7
-
 shen_counterweight:
   suspend_if_shen_above: 0.80
-
 audit_trail:
   log_file: "Codex/Core/FCP_Audit.yaml"

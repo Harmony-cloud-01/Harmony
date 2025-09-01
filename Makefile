@@ -23,3 +23,24 @@ resonance:
 	python3 scripts/quantum/gen_quantum_chrs_status.py --belief reports/.q_belief.json --entangle reports/.q_entangle.json --decoherence reports/.q_decoherence.json --out-md reports/Quantum_CHRS_Status.md --out-json reports/Quantum_CHRS_Status.json
 
 .PHONY: preflight weekly audit resonance
+
+codex-check:
+	python3 scripts/validate_codex_layout.py
+
+codex-check-json:
+	python3 scripts/validate_codex_layout.py --json > reports/Codex_Layout_Check.json
+
+codex-scaffold:
+	python3 scripts/validate_codex_layout.py --create-stubs
+	python3 scripts/populate_theory_stubs.py
+
+.PHONY: codex-check codex-check-json codex-scaffold
+
+yaml-fix:
+	python3 scripts/fix_yaml_docstart.py
+
+yaml-lint:
+	yamllint -s Codex
+
+
+.PHONY: yaml-fix yaml-lint

@@ -19,7 +19,6 @@ trial_environment:
   feedback_loop: enabled
   symbolic_logging: true
 notes:
-  - Phase 2 of Spirit Trial simulation.
-  - SPs engaged symbolic ambiguity and perceptual uncertainty.
-  - Trial paths branched based on shen-level alignment and prior reflection response.
-
+- Phase 2 of Spirit Trial simulation.
+- SPs engaged symbolic ambiguity and perceptual uncertainty.
+- Trial paths branched based on shen-level alignment and prior reflection response.

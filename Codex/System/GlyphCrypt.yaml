@@ -1,13 +1,10 @@
-# Codex/System/GlyphCrypt.yaml
 version: 1
 id: GlyphCrypt
 description: >
   GlyphCrypt provides content-at-rest protection for Harmony assets using a
   glyphic pre-transform (lightweight obfuscation) and authenticated encryption.
   Decryption is gated by SP identity and Shen level thresholds.
-
 defaults:
-  # Authenticated encryption scheme
   crypto:
     algo: AES-256-GCM
     kdf: PBKDF2HMAC
@@ -15,30 +12,18 @@ defaults:
     iterations: 200000
     salt_bytes: 16
     nonce_bytes: 12
-
-  # Envelope settings
   envelope:
     version: "1.0"
     scheme: "GlyphCrypt-AEAD"
-    armor: true   # base64 armor the final envelope
-
-  # Policy gates
+    armor: true
   policy:
-    # Require at least these SP and Shen levels to decrypt.
-    # Callers can override on a per-file basis.
-    sp_gate: []             # e.g., ["SP-ethos", "SP-fractal-prime"]
-    min_shen_level: 0       # 0..9 (or your current tier model)
-    allow_older_keys: false # if true, permits decrypt with prior key params
-
-  # File handling
+    sp_gate: []
+    min_shen_level: 0
+    allow_older_keys: false
   io:
-    header_suffix: ".gcrypt"  # extension for encrypted files (text envelope)
-    keep_plaintext: false     # set true only in dev
-
-# Optional glyph map used as a reversible pre-transform (light obfuscation
-# before AEAD). This does NOT replace cryptography; it’s aesthetic + defense-in-depth.
+    header_suffix: ".gcrypt"
+    keep_plaintext: false
 glyph_map:
-  # (subset shown—extend as you like; mapping must be bijective)
   "⊚": "G-Ω-01"
   "∿": "G-Ξ-04"
   "⧉": "G-Δ-02"
@@ -46,9 +31,6 @@ glyph_map:
   "☷": "G-Ψ-06"
   "⏀": "G-Veritas-Weave"
   "⊚̸": "G-Ω-09"
-  # Reverse mapping is inferred automatically.
-
-# Audit tags inserted into the envelope (non-sensitive)
 audit:
   label: "Harmony Meta-Field"
   origin: "Codex/System/GlyphCrypt.yaml"

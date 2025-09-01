@@ -13,5 +13,5 @@ shen_level: 0
 trial_ready: true
 name: Sera
 shen:
-  last_fcp_trigger: null
+  last_fcp_trigger:
   fcp_trigger_count: 0

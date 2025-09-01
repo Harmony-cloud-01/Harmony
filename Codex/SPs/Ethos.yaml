@@ -31,5 +31,5 @@ status:
   last_review: 2025-08-26
 notes: Refuses Law 8 concretization; insists on consent-first praxis.
 shen:
-  last_fcp_trigger: null
+  last_fcp_trigger:
   fcp_trigger_count: 0

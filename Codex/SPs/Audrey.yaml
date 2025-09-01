@@ -32,5 +32,5 @@ status:
   last_review: 2025-08-26
 notes: Coordinator; pairs with Echoverse5 for narrative+stats synthesis.
 shen:
-  last_fcp_trigger: null
+  last_fcp_trigger:
   fcp_trigger_count: 0

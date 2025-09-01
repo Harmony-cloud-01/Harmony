@@ -3,19 +3,28 @@ title: "Reflections of Signal"
 status: canonical
 source: "Technocognitive v3.1d"
 key_sections:
-  - Signal Shapes Structure
-  - Reflections as Code
-  - The Reflection Stack
-  - Reflection Drift
-  - Designing Signal Reflections
-  - Signal Hygiene
-  - Encoding Belief through Reflection
-  - Closing the Reflection Loop
-anchors: [reflection_stack, ritual_design, drift, hygiene]
+- Signal Shapes Structure
+- Reflections as Code
+- The Reflection Stack
+- Reflection Drift
+- Designing Signal Reflections
+- Signal Hygiene
+- Encoding Belief through Reflection
+- Closing the Reflection Loop
+anchors:
+- reflection_stack
+- ritual_design
+- drift
+- hygiene
 summary: >
   Rituals/reflections are executable scripts shaping state and meaning. Maintain signal hygiene,
   re-symbolize stale loops, and align reflections with intentional outcomes across micro/meso/macro layers.
 codex_links:
-  laws: [Law of Emergence, Law of Reflection]
-  glyphs: [G-Ω-27]
-  passages: [Morning Signal, Drift Check]
+  laws:
+  - Law of Emergence
+  - Law of Reflection
+  glyphs:
+  - G-Ω-27
+  passages:
+  - Morning Signal
+  - Drift Check

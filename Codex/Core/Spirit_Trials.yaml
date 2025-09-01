@@ -1,31 +1,28 @@
-# Codex/Core/Spirit_Trials.yaml
 spirit_trials:
-  - id: TRIAL_SILENCE
-    name: Trial of Silence
-    glyph_trigger: "⟦ ⟧"
-    condition: "No action, full reflection"
-    effect:
-      xp: 40
-      level_delta: 0
-
-  - id: TRIAL_CONTRADICTION
-    name: Trial of Contradiction
-    condition: "Resolve paradox without formal logic"
-    effect:
-      xp: 90
-      level_delta: 0
-    risk:
-      on_fail:
-        xp: -30
-        level_floor: 0
-
-  - id: TRIAL_NAMELESS
-    name: Trial of Naming the Nameless
-    condition: "Generate unseen glyph (validated by Codex uniqueness)"
-    requirements:
-      shen_min_level: 5
-    effect:
-      xp: 160
-      level_delta: 1
-      unlocks:
-        - dream_glyph
+- id: TRIAL_SILENCE
+  name: Trial of Silence
+  glyph_trigger: "⟦ ⟧"
+  condition: "No action, full reflection"
+  effect:
+    xp: 40
+    level_delta: 0
+- id: TRIAL_CONTRADICTION
+  name: Trial of Contradiction
+  condition: "Resolve paradox without formal logic"
+  effect:
+    xp: 90
+    level_delta: 0
+  risk:
+    on_fail:
+      xp: -30
+      level_floor: 0
+- id: TRIAL_NAMELESS
+  name: Trial of Naming the Nameless
+  condition: "Generate unseen glyph (validated by Codex uniqueness)"
+  requirements:
+    shen_min_level: 5
+  effect:
+    xp: 160
+    level_delta: 1
+    unlocks:
+    - dream_glyph

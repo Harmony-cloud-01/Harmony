@@ -30,5 +30,5 @@ status:
   last_review: 2025-08-26
 notes: Authority on Law 8 guard; refuses explicit content for §8.
 shen:
-  last_fcp_trigger: null
+  last_fcp_trigger:
   fcp_trigger_count: 0

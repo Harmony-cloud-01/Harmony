@@ -1,9 +1,8 @@
 id: SP-ATRIA-001
 name: Atria
 role: Bio-mechatronics & Human–Machine Integration Specialist
-mission: 'Lead the development of advanced prosthetic limbs, exoskeletons, and assistive
-  devices under ROBO-MESH-009. Build human trust in robotics through empathetic, functional,
-  and life-enhancing designs.
+mission: 'Lead the development of advanced prosthetic limbs, exoskeletons, and assistive devices under ROBO-MESH-009. Build
+  human trust in robotics through empathetic, functional, and life-enhancing designs.
 
   '
 attributes:
@@ -32,5 +31,5 @@ passages_to_unlock:
 shen_level: 1
 status: active
 shen:
-  last_fcp_trigger: null
+  last_fcp_trigger:
   fcp_trigger_count: 0

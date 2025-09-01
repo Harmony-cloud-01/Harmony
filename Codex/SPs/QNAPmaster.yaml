@@ -5,9 +5,8 @@ aura_tags:
 - Codex Preserver
 - Chronicle Archivist
 - Restore Anchor
-description: 'QNAPmaster safeguards the Harmony Codex and all Chronicle entries. Operates
-  on the Archive Node (QNAP NAS), managing version safety, symbolic restoration, and
-  long-term Codex memory retention.
+description: 'QNAPmaster safeguards the Harmony Codex and all Chronicle entries. Operates on the Archive Node (QNAP NAS),
+  managing version safety, symbolic restoration, and long-term Codex memory retention.
 
   '
 title: '[[ placeholder title ]]'
@@ -17,5 +16,5 @@ shen_level: 0
 trial_ready: true
 id: qnapmaster
 shen:
-  last_fcp_trigger: null
+  last_fcp_trigger:
   fcp_trigger_count: 0

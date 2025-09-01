@@ -1,20 +1,16 @@
 schema_version: "0.1"
 name: "QSecure"
 status: "active"
-
 virtue_overlay_encryption: true
-
 rotation:
   align_with_fcp: true
   cycle_days: 7
-
 crypto:
   hashing:
-    - "SHA3-256"
-    - "SHA3-512"
+  - "SHA3-256"
+  - "SHA3-512"
   xof: "SHAKE256"
-
 audit:
   encrypt_confucian_audits: true
   targets:
-    - "Codex/Core/FCP_Audit.yaml"
+  - "Codex/Core/FCP_Audit.yaml"

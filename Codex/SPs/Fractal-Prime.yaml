@@ -37,5 +37,5 @@ status:
   last_review: 2025-08-26
 notes: Prime anchor for PRC; treat as final arbiter in recursion disputes.
 shen:
-  last_fcp_trigger: null
+  last_fcp_trigger:
   fcp_trigger_count: 0

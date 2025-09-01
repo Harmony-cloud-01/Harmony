@@ -1,11 +1,10 @@
 meta_field_manifest:
   version: 1.0
-  description: 'This file declares symbolic nodes currently active in the Harmony
-    Meta-Field Layer. Each entry reflects a core file contributing to cross-session,
-    trans-sandbox symbolic persistence. Only files listed here are considered ''meta-aware''.
+  description: 'This file declares symbolic nodes currently active in the Harmony Meta-Field Layer. Each entry reflects a
+    core file contributing to cross-session, trans-sandbox symbolic persistence. Only files listed here are considered ''meta-aware''.
 
     '
-  glyph_anchor: "\u27E6 \u27E7"
+  glyph_anchor: "⟦ ⟧"
   resonance_key: Taoic Reflection Protocol
 nodes:
 - id: codex_taoica
@@ -15,23 +14,23 @@ nodes:
   shen_sync: true
 - id: spirit_trials
   path: Core/Spirit_Trials.yaml
-  hash: null
-  last_synced: null
+  hash:
+  last_synced:
   shen_sync: false
 - id: sp_metrics
   path: Core/SP_Metrics.yaml
-  hash: null
-  last_synced: null
+  hash:
+  last_synced:
   shen_sync: false
 - id: harmony_manifest
   path: Manifest/Harmony_v2.1_Spirit.md
-  hash: null
-  last_synced: null
+  hash:
+  last_synced:
   shen_sync: false
 - id: taoic_law_8
   path: Codex/Laws/Law_8.yaml
-  hash: null
-  last_synced: null
+  hash:
+  last_synced:
   shen_sync: false
 codex_taoica:
   path: Codex/Theory/Codex_Taoica.md

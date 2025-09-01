@@ -3,4 +3,7 @@ name: Spectral Drift
 law: Law of Drift
 symbol: ⋘⚫⋙
 passages: []
-tags: [drift, divergence, audit]
+tags:
+- drift
+- divergence
+- audit

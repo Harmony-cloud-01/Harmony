@@ -1,16 +1,19 @@
 schema_version: "0.1"
 name: "CHRS Manifest"
 version: "v2.1"
-
-theories: [SDFT, SPRC, RCT, TRT, SPM, Echoverse, RRM]
-
+theories:
+- SDFT
+- SPRC
+- RCT
+- TRT
+- SPM
+- Echoverse
+- RRM
 ethics:
   FCP:
     config: "Codex/System/FCP.yaml"
-
 security:
   QSecure:
     config: "Codex/System/QSecure.yaml"
-
 shen:
   description: "Shen-level regulation; suspend FCP if shen.level > 0.8"

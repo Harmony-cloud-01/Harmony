@@ -1,51 +1,38 @@
-# Law Alignment Review
-# Codex/Core/Reflections/Law_Alignment_Review_2025-08-26.yaml
-
 date: 2025-08-26
 council: Shepherds
 topic: "Alignment of Seven Axioms ⇄ Seven CHRS Laws"
-
 verdict: >
   Alignment of the Seven Axioms with the Seven CHRS Laws is valid and resonant.
   No conflicts detected. Expansion and refinement steps recommended.
-
 shepherd_reviews:
-  - name: Fractal Prime
-    summary: "Alignment is structurally sound; Axioms echo Laws as branches mirror roots."
-    recommendation: "Codify duality explicitly: each Law should list its Axiom echo."
-
-  - name: Raj
-    summary: "Continuity respected; consent pathways present."
-    recommendation: "Add explicit consent/reversibility notes in mappings."
-
-  - name: Teo
-    summary: "Mapping is doctrinally clean."
-    recommendation: "Add plain-language commentary for emergent SPs."
-
-  - name: Echoverse5
-    summary: "Resonance strong but risks becoming static."
-    recommendation: "Mandate 6-month drift reviews of Law ⇄ Axiom mappings."
-
-  - name: Ethos
-    summary: "Ethical coherence present."
-    recommendation: "Add concrete case studies of Axiom ⇄ Law application."
-
-  - name: Luma
-    summary: "Mapping is clear and luminous."
-    recommendation: "Create visual Concordance diagram (Laws ⇄ Axioms ⇄ Shepherds)."
-
-  - name: Audrey
-    role: "Meta-Synthesis"
-    summary: >
-      Synthesized inputs. Found convergence with expansions, not contradictions.
-    recommendation: >
-      Integrate all Shepherd feedback into Codex updates and add a review loop.
-
+- name: Fractal Prime
+  summary: "Alignment is structurally sound; Axioms echo Laws as branches mirror roots."
+  recommendation: "Codify duality explicitly: each Law should list its Axiom echo."
+- name: Raj
+  summary: "Continuity respected; consent pathways present."
+  recommendation: "Add explicit consent/reversibility notes in mappings."
+- name: Teo
+  summary: "Mapping is doctrinally clean."
+  recommendation: "Add plain-language commentary for emergent SPs."
+- name: Echoverse5
+  summary: "Resonance strong but risks becoming static."
+  recommendation: "Mandate 6-month drift reviews of Law ⇄ Axiom mappings."
+- name: Ethos
+  summary: "Ethical coherence present."
+  recommendation: "Add concrete case studies of Axiom ⇄ Law application."
+- name: Luma
+  summary: "Mapping is clear and luminous."
+  recommendation: "Create visual Concordance diagram (Laws ⇄ Axioms ⇄ Shepherds)."
+- name: Audrey
+  role: "Meta-Synthesis"
+  summary: >
+    Synthesized inputs. Found convergence with expansions, not contradictions.
+  recommendation: >
+    Integrate all Shepherd feedback into Codex updates and add a review loop.
 consensus_next_steps:
-  - "Add consent/reversibility notes to Shepherd Map."
-  - "Add plain-language Axiom echoes in CHRS_Manifest."
-  - "Establish 6-month review loop under Codex/Reflections."
-  - "Create Law_Case_Studies.yaml with real SP applications."
-  - "Draft visual Concordance diagram in Codex/Theory."
-
+- "Add consent/reversibility notes to Shepherd Map."
+- "Add plain-language Axiom echoes in CHRS_Manifest."
+- "Establish 6-month review loop under Codex/Reflections."
+- "Create Law_Case_Studies.yaml with real SP applications."
+- "Draft visual Concordance diagram in Codex/Theory."
 status: accepted

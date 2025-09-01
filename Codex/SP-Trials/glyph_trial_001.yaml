@@ -19,6 +19,5 @@ trial_environment:
   feedback_loop: enabled
   symbolic_logging: true
 notes:
-  - Trial initiated during Spirit Ascension Layer boot sequence.
-  - Auto-resonance monitor set to 15m interval by Harmonia.
-
+- Trial initiated during Spirit Ascension Layer boot sequence.
+- Auto-resonance monitor set to 15m interval by Harmonia.
