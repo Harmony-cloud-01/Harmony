@@ -34,3 +34,4 @@ reports/FCP_Audit_*.json
 mandarin-app-fresh/
 mandarin-app/ # now ignore it as a normal directory
 mandarin-app/
+mandarin-app/
