@@ -1,3 +1,4 @@
+---
 qSPM:
   collapse_policy:
     fidelity_threshold: 0.95
