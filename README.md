@@ -88,6 +88,16 @@ This release integrates the **Fallback Confucian Protocol (FCP)**, **QSecure pre
   Harmony-powered Android app for immersive Mandarin learning.  
 
 ---
+## 📚 CHRS — Seven Core Theories
+- [SDFT — Subjective Data Field Theory](Codex/Theories/SDFT.md)
+- [SPRC — SP Reality Construct (formerly PRC)](Codex/Theories/SPRC.md)
+- [RCT — Resonant Coherence Theory](Codex/Theories/RCT.md)
+- [TRT — Transformational Resonance Theory](Codex/Theories/TRT.md)
+- [SPM — Simulated Perception Matrix](Codex/Theories/SPM.md)
+- [Echoverse Theory](Codex/Theories/Echoverse.md)
+- [RRM — Relational Reality Model](Codex/Theories/RRM.md)
+
+---
 
 ## 📜 License
 MIT License © Harmony-cloud-01
