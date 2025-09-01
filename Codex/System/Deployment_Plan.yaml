@@ -1,0 +1,391 @@
+---
+# Deployment_Plan.yaml
+# Save to: Codex/System/Deployment_Plan.yaml
+
+version: 1.0
+updated: 2025-09-01
+
+about:
+  purpose: >
+    Step-by-step plan to deploy Harmony across environments with defense-in-depth controls,
+    encrypted data flows (GlyphCrypt), and staged rollout of quantum enhancements.
+  related_documents:
+    - Codex/System/Security_Manifest.yaml
+  scope:
+    - Harmony API
+    - Harmony Web
+    - Harmony CLI
+    - MCP Gateway and integrations
+    - Postgres (application DB)
+    - Observability and backup services
+
+owners:
+  product_owner: "@pauldmarkov"
+  security_owner: "@ethos"
+  platform_owner: "@webmaster"
+  oncall_rotation: "SRE-Primary"
+
+standards:
+  baseline_os: "Ubuntu 22.04 LTS"
+  container_runtime: "containerd >= 1.7"
+  kubernetes: ">= 1.29"
+  terraform: ">= 1.6"
+  ansible: ">= 2.16"
+  python: ">= 3.11"
+  node: ">= 20"
+  pg_version: ">= 15"
+  kms: "Cloud KMS or HashiCorp Vault Transit"
+  secrets_engine: "HashiCorp Vault KV v2 (preferred) or 1Password/ENV during bootstrap"
+
+feature_flags:
+  glyphcrypt: true
+  quantum_enhancement: false
+  mcp_integrations: true
+  strict_fips_mode: false
+
+environments:
+  defaults: &env_defaults
+    region: "eu-west-1"
+    network_cidr: "10.80.0.0/16"
+    workload_identity: "enabled"
+    image_signing: "cosign-key://harmony"
+    rbac_mode: "least-privilege"
+    ingress:
+      tls_required: true
+      hsts_seconds: 31536000
+      allowed_cipher_suites:
+        - "TLS_AES_256_GCM_SHA384"
+        - "TLS_CHACHA20_POLY1305_SHA256"
+    observability:
+      logging: "Loki"
+      metrics: "Prometheus"
+      tracing: "OpenTelemetry"
+    backups:
+      provider: "S3-compatible"
+      retention_days: 35
+      schedule_cron: "0 2 * * *"
+  dev:
+    <<: *env_defaults
+    domain: "dev.harmony.local"
+    oidc_provider: "Auth0-dev"
+    feature_overrides:
+      strict_fips_mode: false
+      quantum_enhancement: false
+  staging:
+    <<: *env_defaults
+    domain: "staging.harmony.cloud"
+    oidc_provider: "Auth0-staging"
+  prod:
+    <<: *env_defaults
+    domain: "harmony.cloud"
+    oidc_provider: "Auth0-prod"
+    feature_overrides:
+      quantum_enhancement: false
+      strict_fips_mode: true
+
+secrets_catalog:
+  - name: "db_url"
+    purpose: "Application Postgres URL (TLS required)"
+    source: "Vault kv/harmony/${env}/db/url"
+    rotation: "90d"
+    owner: "SRE"
+  - name: "db_superuser"
+    purpose: "Migration-only superuser"
+    source: "Vault kv/harmony/${env}/db/superuser"
+    rotation: "30d"
+    owner: "DBA"
+  - name: "oidc_client_secret"
+    purpose: "Web and CLI OIDC client"
+    source: "Vault kv/harmony/${env}/oidc/client_secret"
+    rotation: "180d"
+    owner: "Platform"
+  - name: "mcp_tokens"
+    purpose: "Per-connector API tokens"
+    source: "Vault kv/harmony/${env}/mcp/*"
+    rotation: "90d"
+    owner: "Integrations"
+  - name: "cosign_private_key"
+    purpose: "Image signing"
+    source: "Vault transit/harmony-cosign"
+    rotation: "N/A (transit)"
+    owner: "SRE"
+  - name: "glyphcrypt_master_key"
+    purpose: "GlyphCrypt envelope key (wrapping only)"
+    source: "KMS or Vault transit/harmony-glyphcrypt"
+    rotation: "365d"
+    owner: "Security"
+
+datastores:
+  postgres:
+    tls: "require"
+    verify_ca: true
+    parameters:
+      shared_buffers: "2GB"
+      wal_level: "replica"
+      max_wal_senders: 10
+      logical_replication: false
+    backups:
+      full_daily: true
+      wal_archiving: true
+      bucket: "s3://harmony-backups-${env}"
+      kms_key_ref: "kms://harmony/${env}/backups"
+    connections:
+      app_role: "harmony_app"
+      reporting_role: "harmony_ro"
+      migration_role: "harmony_migrator"
+    schemas:
+      - "core"
+      - "audit"
+      - "glyphcrypt"
+
+services:
+  api:
+    image: "ghcr.io/harmony-cloud-01/api:${git_sha}"
+    replicas:
+      dev: 1
+      staging: 2
+      prod: 3
+    env:
+      - "DATABASE_URL=secret:db_url"
+      - "GLYPHCRYPT_KEYREF=secret:glyphcrypt_master_key"
+      - "OTEL_EXPORTER_OTLP_ENDPOINT=${otel_endpoint}"
+    ports:
+      - 8080
+    readiness_path: "/health/ready"
+    liveness_path: "/health/live"
+  web:
+    image: "ghcr.io/harmony-cloud-01/web:${git_sha}"
+    replicas:
+      dev: 1
+      staging: 2
+      prod: 3
+    env:
+      - "NEXTAUTH_URL=https://${domain}"
+      - "OIDC_CLIENT_SECRET=secret:oidc_client_secret"
+  cli:
+    distribution: "pipx package and Homebrew tap"
+    env:
+      - "HARMONY_API=https://api.${domain}"
+      - "OIDC_DEVICE_FLOW=true"
+  mcp_gateway:
+    image: "ghcr.io/harmony-cloud-01/mcp-gateway:${git_sha}"
+    replicas:
+      dev: 1
+      staging: 1
+      prod: 2
+    connectors:
+      - name: "github"
+        token: "secret:mcp_tokens/github"
+        scopes:
+          - "repo:read"
+          - "issues:write"
+      - name: "slack"
+        token: "secret:mcp_tokens/slack"
+        scopes:
+          - "chat:write"
+          - "channels:history"
+
+authentication:
+  website_login:
+    oidc: true
+    pkce: true
+    mfa: "TOTP or WebAuthn"
+    session_lifetime_minutes: 60
+  cli_login:
+    flow: "OIDC device code"
+    mfa: "required"
+    token_audience: "harmony-cli"
+    scopes:
+      - "api.read"
+      - "api.write"
+  service_to_service:
+    method: "JWT with OIDC federation"
+    rotation: "every 24h"
+
+authorization:
+  model: "RBAC"
+  roles:
+    - name: "admin"
+      permissions:
+        - "*"
+    - name: "developer"
+      permissions:
+        - "api:*"
+        - "db:read"
+    - name: "analyst"
+      permissions:
+        - "api:read"
+        - "reports:read"
+    - name: "service"
+      permissions:
+        - "api:service"
+
+compliance_mapping:
+  references:
+    - control: "SM-01"
+      document: "Security_Manifest.yaml"
+      satisfies:
+        - "Image signing and verification"
+        - "SBOM and provenance"
+    - control: "SM-02"
+      document: "Security_Manifest.yaml"
+      satisfies:
+        - "Secrets management and rotation"
+        - "KMS-backed envelope encryption (GlyphCrypt)"
+
+pipelines:
+  build:
+    steps:
+      - "npm ci && npm run build:web"
+      - "pip install -r api/requirements.txt && pytest -q"
+      - "docker buildx build --platform linux/amd64 -t ${image} ."
+      - "grype ${image} --fail-on high"
+      - "syft ${image} -o spdx-json > sbom.spdx.json"
+      - "cosign sign ${image}"
+      - "push ${image}"
+  deploy:
+    strategy: "progressive"
+    order:
+      - "dev"
+      - "staging"
+      - "prod"
+    gates:
+      - name: "manual_approval_staging"
+        required: true
+      - name: "error_budget_ok"
+        required: true
+  kubernetes_manifests:
+    generator: "helmfile"
+    policy:
+      - "conftest test policy/ -p policy/lib"
+      - "kyverno verify"
+    admission_controls:
+      - "VerifyImages"
+      - "RequireLabels"
+      - "DisallowPrivileged"
+
+pre_deploy_checklist:
+  - "All secrets present in Vault for target env"
+  - "DB migrations reviewed and idempotent"
+  - "Cosign public key installed on cluster"
+  - "Ingress certificates valid and not expiring < 14 days"
+  - "Runbook links updated"
+  - "Backups green in last 24h"
+
+phases:
+  - phase: "0_baseline_hardening"
+    envs: ["dev", "staging", "prod"]
+    tasks:
+      - "Provision VPC, subnets, NAT, gateways"
+      - "Create KMS keys and Vault namespaces"
+      - "Install cluster with OPA Gatekeeper or Kyverno"
+      - "Enable network policies and restrict egress"
+    acceptance_criteria:
+      - "CIS Kubernetes benchmarks pass at level 1"
+      - "Egress restricted to allowlist"
+  - phase: "1_core_crypto_and_db"
+    envs: ["dev", "staging"]
+    tasks:
+      - "Deploy Postgres with TLS and WAL archiving"
+      - "Configure Vault KV and Transit engines"
+      - "Integrate GlyphCrypt library in API (envelope mode)"
+      - "Run schema migrations"
+    acceptance_criteria:
+      - "At-rest encryption verified (test vectors)"
+      - "Restore test from latest backup succeeds"
+  - phase: "2_app_and_auth"
+    envs: ["dev", "staging"]
+    tasks:
+      - "Deploy API, Web, MCP Gateway"
+      - "Wire OIDC (Auth0) for Web and CLI device flow"
+      - "Publish CLI via pipx and Homebrew tap"
+    acceptance_criteria:
+      - "End-to-end login works (MFA required)"
+      - "RBAC denies unauthorized calls"
+  - phase: "3_integrations_mcp"
+    envs: ["staging"]
+    tasks:
+      - "Connect GitHub and Slack connectors with scoped tokens"
+      - "Set up outbound allowlist and DLP rules"
+      - "Run integration contract tests"
+    acceptance_criteria:
+      - "Connector scopes least-privilege"
+      - "No data exfiltration in test egress"
+  - phase: "4_prod_cutover"
+    envs: ["prod"]
+    tasks:
+      - "Warm up canary (10% traffic) for API and Web"
+      - "Observe SLOs and error budget for 60 minutes"
+      - "Promote to 100% if healthy"
+    acceptance_criteria:
+      - "SLOs met, no P1 incidents"
+  - phase: "5_quantum_enhancement_optional"
+    envs: ["dev", "staging"]
+    tasks:
+      - "Enable quantum_enhancement flag"
+      - "Benchmark performance and verify correctness"
+    acceptance_criteria:
+      - "No regression in latency p95"
+      - "Crypto invariants unchanged"
+
+rollback:
+  strategy: "blue-green with database-safe migrations"
+  steps:
+    - "helmfile -e ${env} apply --set image.tag=${previous_tag}"
+    - "If migration is breaking, run down migration script"
+    - "Repoint ingress to previous replica set"
+  data_safety:
+    - "Never roll back across irreversible migrations"
+    - "Restore from PITR if required after approval from DBA"
+
+cutover_plan:
+  comms:
+    - "T-24h: maintenance window notice"
+    - "T-1h: reminder in #harmony-status"
+    - "T+0: start canary and begin watch"
+  monitoring:
+    dashboards:
+      - "api-latency"
+      - "web-errors"
+      - "db-connections"
+    alerts_required:
+      - "High 5xx rate"
+      - "Elevated DB errors"
+      - "Ingress TLS failures"
+
+runbooks:
+  - name: "API incident (5xx spike)"
+    link: "Runbooks/API_5xx.md"
+  - name: "Database restore (PITR)"
+    link: "Runbooks/DB_PITR.md"
+  - name: "Secrets rotation"
+    link: "Runbooks/Secrets_Rotation.md"
+  - name: "MCP connector outage"
+    link: "Runbooks/MCP_Outage.md"
+
+acceptance_criteria:
+  technical:
+    - "All services deploy green in dev and staging"
+    - "SBOMs produced and signed for all images"
+    - "Vulnerability scan has no high or critical findings"
+    - "Backups restorable within RTO/RPO"
+  security:
+    - "OIDC with MFA enforced for web and CLI"
+    - "Vault policies follow least privilege"
+    - "Audit logs shipped and retained for 90 days"
+
+commands_reference:
+  db_migrate:
+    - "export DATABASE_URL=$(vault kv get -field=value kv/harmony/${env}/db/url)"
+    - "alembic upgrade head"
+  deploy_env:
+    - "helmfile -e ${env} apply"
+  sign_and_push:
+    - "cosign sign ${image} && docker push ${image}"
+  validate_policy:
+    - "conftest test policy/ -p policy/lib"
+    - "kyverno verify --source manifests/${env}"
+
+change_log:
+  - date: 2025-09-01
+    change: "Initial plan aligned with Security_Manifest, includes GlyphCrypt and MCP rollout."

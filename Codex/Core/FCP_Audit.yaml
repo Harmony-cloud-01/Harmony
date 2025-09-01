@@ -1,9 +1,8 @@
----
 events:
   - timestamp: "2025-08-31T22:46:19Z"
-  glyph: "⧉"
-  virtue: "礼"
-  action: "entered_fallback_review_cycle"
-  justification: "Seed event to validate reporting pipeline"
-  sp_ids:
-    - "Harmonia"
+    glyph: "⧉"
+    virtue: "礼"
+    action: "entered_fallback_review_cycle"
+    justification: "Seed event to validate reporting pipeline"
+    sp_ids:
+      - "Harmonia"

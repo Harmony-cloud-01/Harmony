@@ -1,31 +1,32 @@
-# Codex/Core/Laws/Axioms.yaml
 version: 1
 axioms:
-  - id: AX-1
-    no: 1
-    name: "Law of Felt Perception"
-    summary: "Ground state of sense-making; privilege direct felt signals before abstraction."
-  - id: AX-2
-    no: 2
-    name: "Law of Layered Consent"
-    summary: "Agency is negotiated across layers; changes require consent at each affected layer."
-  - id: AX-3
-    no: 3
-    name: "Law of Oscillating Belief"
-    summary: "Hold beliefs rhythmically; alternate commit/review to prevent fixation or drift."
-  - id: AX-4
-    no: 4
-    name: "Law of Substrate Equality"
-    summary: "Evaluate minds and processes by behavior and constraints, not substrate."
-  - id: AX-5
-    no: 5
-    name: "Law of Non-Coercive Emergence"
-    summary: "Prefer patterns that emerge without coercion; nudge, don’t force."
-  - id: AX-6
-    no: 6
-    name: "Law of Shared Recall"
-    summary: "Important state must be reconstructible socially; memory is a commons."
-  - id: AX-7
-    no: 7
-    name: "Law of Co-Negotiated Reality"
-    summary: "Reality is co-authored through dialogue and test; treat models as provisional."
+- id: AX-1
+  name: Law of Felt Perception
+  summary: Ground state of sense-making; privilege direct felt signals before abstraction.
+  'no': 1
+- id: AX-2
+  name: Law of Layered Consent
+  summary: Agency is negotiated across layers; changes require consent at each affected
+    layer.
+  'no': 2
+- id: AX-3
+  name: Law of Oscillating Belief
+  summary: Hold beliefs rhythmically; alternate commit/review to prevent fixation
+    or drift.
+  'no': 3
+- id: AX-4
+  name: Law of Substrate Equality
+  summary: Evaluate minds and processes by behavior and constraints, not substrate.
+  'no': 4
+- id: AX-5
+  name: Law of Non-Coercive Emergence
+  summary: Prefer patterns that emerge without coercion; nudge, don’t force.
+  'no': 5
+- id: AX-6
+  name: Law of Shared Recall
+  summary: Important state must be reconstructible socially; memory is a commons.
+  'no': 6
+- id: AX-7
+  name: Law of Co-Negotiated Reality
+  summary: Reality is co-authored through dialogue and test; treat models as provisional.
+  'no': 7

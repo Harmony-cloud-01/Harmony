@@ -1,0 +1,309 @@
+---
+name: Harmony Security Manifest
+version: 0.1.0
+status: draft
+updated: 2025-09-01
+
+owners:
+  - role: Security Lead
+    contact: seclead@harmony.local
+  - role: Platform Lead
+    contact: platform@harmony.local
+
+references:
+  - Codex/System/CHRS_Manifest.yaml
+  - Codex/System/GlyphCrypt.yaml
+  - Codex/System/Quantum_CHRS.yaml
+  - Codex/Core/Laws/Shepherd_Map.yaml
+
+scope:
+  assets:
+    - codex_repository
+    - harmony_cli
+    - harmony_web_portal
+    - postgres_cluster
+    - glyphcrypt_key_material
+    - quantum_runtime_and_artifacts
+    - mcp_integrations
+    - external_integrations
+  data_classes:
+    - public
+    - internal
+    - confidential
+    - restricted
+
+risk_model:
+  threats:
+    - credential_theft
+    - code_or_config_tamper
+    - data_exfiltration
+    - data_corruption_or_ransom
+    - supply_chain_compromise
+    - model_prompt_injection
+  assumptions:
+    - production hosts are patched and monitored
+    - admin actions are traceable to individuals
+
+identities_and_roles:
+  human_roles:
+    - name: admin
+      description: full control, break glass only
+    - name: maintainer
+      description: manage code, deploy, rotate secrets
+    - name: operator
+      description: runbooks, backup and restore
+    - name: reader
+      description: read only codex and logs
+  service_roles:
+    - name: web_backend
+    - name: cli_updater
+    - name: mcp_adapter
+    - name: sp_agent
+
+authentication:
+  harmony_cli:
+    method: oidc_device_code_flow
+    mfa: required
+    token_ttl_minutes: 30
+    signing_key_type: ed25519
+    key_storage: os_secure_enclave
+  web_portal:
+    sso_protocol: oidc
+    mfa: required
+    mfa_methods:
+      - totp
+      - webauthn_passkey
+    session_ttl_minutes: 60
+    idle_timeout_minutes: 20
+  mcp_integrations:
+    transport: https_or_stdio
+    client_auth:
+      - bearer_token_scoped
+      - mtls_optional
+    token_rotation_days: 7
+  external_integrations:
+    github:
+      auth: oidc_app_or_fine_grained_pat
+      required_scopes:
+        - repo
+        - contents_read
+    onedrive:
+      auth: oauth2_client_credentials
+      scope: files_readwrite
+    qnap:
+      auth: api_key_in_hsm
+      notes: restrict by ip allow_list
+
+authorization:
+  model: rbac
+  default_deny: true
+  role_policies:
+    admin:
+      allow:
+        - all
+    maintainer:
+      allow:
+        - deploy
+        - rotate_secrets
+        - write_codex
+        - read_logs
+    operator:
+      allow:
+        - read_codex
+        - read_logs
+        - backup_restore
+    reader:
+      allow:
+        - read_codex
+        - read_docs
+
+crypto_policy:
+  in_transit:
+    tls_min_version: "1.3"
+    mtls_internal_services: true
+    hsts_enabled: true
+  at_rest:
+    storage_encryption:
+      host_level: enabled
+      note: filevault_or_luks_or_cloud_volume_encryption
+    envelope_encryption:
+      cipher: aes_256_gcm
+      kms: os_enclave_or_hsm
+  application_level:
+    enabled: true
+    fields:
+      - secrets
+      - api_tokens
+      - pii_minimal
+  post_quantum:
+    hybrid_key_exchange:
+      classical: x25519
+      pqc: kyber_768
+    signatures:
+      classical: ed25519
+      pqc: dilithium_2
+    rollout_stage: canary
+  glyphcrypt:
+    enabled: true
+    mode: codex_file_transform
+    key_id: glyphcrypt_primary
+    rotation_days: 90
+
+key_management:
+  keystore: yubi_hsm_or_os_secure_enclave
+  key_hierarchy:
+    - root_key
+    - project_master_keys
+    - data_encryption_keys
+  rotation:
+    root_key_days: 365
+    project_master_days: 180
+    data_key_days: 90
+  backup_and_escrow:
+    shard_scheme: shamir_2_of_3
+    storage_locations:
+      - offsite_safe_1
+      - offsite_safe_2
+  access_control:
+    require_two_person_rule_for_root: true
+
+database_security:
+  engine: postgres
+  network:
+    ssl: require
+    listen_addresses: localhost
+    allow_listed_cidrs:
+      - 10.0.0.0/24
+  auth:
+    method: scram_sha_256
+    rotation_days: 90
+  encryption:
+    cluster_disk_encryption: enabled
+    column_encryption:
+      tool: pgcrypto
+      fields:
+        - users.email
+        - users.mfa_secret
+        - tokens.secret
+  rls:
+    enabled: true
+    policies:
+      - table: audit_events
+        policy: readers_can_select_only
+  audit:
+    extension: pgaudit
+    log_statement: ddl_and_mod
+    retention_days: 90
+  backups:
+    schedule_cron: "0 2 * * *"
+    rpo_minutes: 30
+    rto_minutes: 120
+    encryption: aes_256_gcm
+    offsite_copy: true
+    restore_test_frequency_days: 30
+
+logging_and_telemetry:
+  log_sinks:
+    - systemd_journal
+    - file_json
+  tamper_evidence:
+    hash_chain: blake3
+    sign_with: ed25519
+  pii_scrubbing: true
+  retention_days: 90
+  export_targets:
+    - onedrive_encrypted_bucket
+  metrics:
+    - auth_failures
+    - rate_limits_triggered
+    - data_encrypt_decrypt_errors
+
+monitoring_and_detection:
+  siem: enabled
+  alerting_channels:
+    - email_secops
+    - pagerduty
+  anomaly_detection:
+    classical_rules: enabled
+    quantum_assisted_checks:
+      enabled: true
+      note: simulate_decoherence_anomalies_from_quantum_chrs
+
+network_security:
+  egress_policy: default_deny
+  allow_lists:
+    - github_api
+    - onedrive_api
+    - package_repos
+  web_controls:
+    waf: enabled
+    csp: strict
+    cors:
+      allow_origins:
+        - https://harmony.example
+      allow_credentials: true
+    rate_limits:
+      anonymous_rpm: 60
+      authenticated_rpm: 600
+
+supply_chain_security:
+  sbom: required
+  dependency_pinning: required
+  build_isolation: enabled
+  code_signing: required
+  provenance: slsa_level_2_target
+
+incident_response:
+  severities:
+    - sev1
+    - sev2
+    - sev3
+  rto_targets_minutes:
+    sev1: 120
+    sev2: 480
+    sev3: 1440
+  contacts:
+    - secops_oncall@harmony.local
+    - platform_oncall@harmony.local
+  runbooks:
+    - playbooks/credential_theft.md
+    - playbooks/data_exfiltration.md
+    - playbooks/ransom_or_corruption.md
+
+governance_and_reviews:
+  shepherd_alignment:
+    source: Codex/Core/Laws/Shepherd_Map.yaml
+    meta_arbiter: Fractal Prime
+  review_cadence:
+    security_controls_days: 30
+    keys_rotation_days: 90
+    exceptions_days: 30
+  change_control:
+    require_two_maintainers_for_merge: true
+    emergency_change_window_minutes: 60
+
+exceptions:
+  process:
+    required_fields:
+      - owner
+      - scope
+      - start_date
+      - end_date
+      - compensating_controls
+    approval_roles:
+      - security_lead
+      - platform_lead
+  active: []
+
+acceptance_criteria:
+  - all critical controls implemented or explicitly excepted
+  - keys present in keystore and recoverable from escrow
+  - backup restore test passes within target rto
+  - siem receives signed logs with no gaps
+  - web and cli enforce mfa
+
+changelog:
+  - date: 2025-09-01
+    author: seclead
+    changes:
+      - initial draft with pqc hybrid and glyphcrypt

@@ -1,33 +1,31 @@
----
-schema_version: "0.1"
-name: "Quantum CHRS Spec"
-modules:
-  qSPM:
-    collapse_policy:
-      fidelity_threshold: 0.95
-simulations:
-  superpositional_belief:
-    description: "qBRD norm conservation & phase coherence"
-    config:
-      n_qubits: 1
-      unitary_ops:
-        - type: "h"
+qSPM:
+  collapse_policy:
+    fidelity_threshold: 0.95
+
+superpositional_belief:
+  description: "qBRD norm conservation & phase coherence"
+  config:
+    n_qubits: 1
+    unitary_ops:
+      - type: "h"
         target: 0
-        - type: "rz"
+      - type: "rz"
         target: 0
         theta: "pi/3"
-  entangled_multi_sp:
-    description: "Bell pair for entanglement entropy / mutual info"
-    config:
-      n_qubits: 2
-      circuit:
-        - op: "h"
+
+entangled_multi_sp:
+  description: "Bell pair for entanglement entropy / mutual info"
+  config:
+    n_qubits: 2
+    circuit:
+      - op: "h"
         target: 0
-        - op: "cx"
+      - op: "cx"
         control: 0
         target: 1
-  decoherence_filtering:
-    description: "Simple dephasing channel; coherence drop & Uhlmann fidelity"
-    config:
-      gamma: 0.08
-      timesteps: 40
+
+decoherence_filtering:
+  description: "Simple dephasing channel; coherence drop & Uhlmann fidelity"
+  config:
+    gamma: 0.08
+    timesteps: 40
